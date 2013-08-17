@@ -8,6 +8,17 @@ sudo apt-get install -y git
 sudo apt-get install -y curl
 curl https://raw.github.com/creationix/nvm/master/install.sh | sh
 
+# Update apt-get’s knowledge of which packages are where
+sudo apt-get update
+# Install a special package
+sudo apt-get install -y python-software-properties python g++ make 
+# Add a new repository for apt-get to search
+sudo add-apt-repository ppa:chris-lea/node.js
+# Update apt-get’s knowledge of which packages are where
+sudo apt-get update
+# Now install nodejs and npm
+sudo apt-get install -y nodejs
+
 # Load nvm and install latest production node
 source $HOME/.nvm/nvm.sh
 nvm install v0.10.12
