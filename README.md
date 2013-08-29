@@ -24,7 +24,8 @@ git config --global user.email munair@gmail.com
 # Next change into the app directory and get all
 # npm dependencies.
 cd cdoseoul-com
-npm install
+npm install express
+npm install postmark
 
 # Login and add the SSH key created previously to Heroku
 # Then create Heroku apps if they don't already exit.
