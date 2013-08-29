@@ -4,11 +4,39 @@ Clone and run this on a new EC2 instance running Ubuntu 12.04.2 LTS to
 configure both the machine and your individual development environment as
 follows:
 
-```sh
+```
+
+sh
 cd $HOME
 sudo apt-get install -y git-core
 git clone https://github.com/munair/aws_ec2_no_emacs_setup.git
 ./aws_ec2_no_emacs_setup/setup.sh   
+
+# Next, create an SSH key and (by copy/pasting with the mouse)
+# add it to Github at https://github.com/settings/ssh
+ssh-keygen -t rsa
+cat ~/.ssh/id_rsa.pub
+
+# Now you can clone via SSH from github.
+# Cloning over SSH allows you to push/pull changes.
+git clone https://github.com/munair/cdoseoul-com.git
+git config --global user.name Munair
+git config --global user.email munair@gmail.com
+
+exit
+# We need to logout and log back in to enable node
+
+# Next change into the app directory and get all
+# npm dependencies.
+cd cdoseoul-com
+npm install
+
+# Login and add the SSH key created previously to Heroku
+# Then create Heroku apps if they don't already exit.
+# Add all necessary add-ons if creating Heroku apps.
+heroku login
+heroku keys:add
+
 ```
 
 See also http://github.com/startup-class/dotfiles and
