@@ -1,12 +1,10 @@
-aws_ec2_no_emacs_setup.git
-=========
-Clone and run this on a new EC2 instance running Ubuntu 12.04.2 LTS to
-configure both the machine and your individual development environment as
-follows:
+Copy the contents of this README.md, dump a copy into machine-setup.bash just as you log in as ubuntu for the first time,
+and run this on a new EC2 instance running Ubuntu 12.04.2 LTS to configure both the machine and the environment for 
+developing the CDO Seoul app:
 
 ```
 
-sh
+#!/bin/bash
 cd $HOME
 sudo apt-get install -y git-core
 git clone https://github.com/munair/aws_ec2_no_emacs_setup.git
@@ -23,9 +21,6 @@ git clone https://github.com/munair/cdoseoul-com.git
 git config --global user.name Munair
 git config --global user.email munair@gmail.com
 
-exit
-# We need to logout and log back in to enable node
-
 # Next change into the app directory and get all
 # npm dependencies.
 cd cdoseoul-com
@@ -36,6 +31,9 @@ npm install
 # Add all necessary add-ons if creating Heroku apps.
 heroku login
 heroku keys:add
+
+exit
+# We need to logout and log back in to enable node
 
 ```
 
